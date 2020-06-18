@@ -1,0 +1,2624 @@
+<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="demo-PC\demo"
+  DTS:CreatorComputerName="DEMO-PC"
+  DTS:CreationDate="4/8/2020 12:10:58 AM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{F1D7EAFF-D5FC-45E6-BF7A-827DB3DD450F}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Union"
+  DTS:DTSID="{B7D0A07D-00EA-42A3-A41B-12D55FBC9C1D}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Union"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Union"
+      DTS:DTSID="{937ABD04-DEA1-45B6-B565-D13C1452DF8F}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Union\Performance of Players"
+              name="Performance of Players"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[Performance of Players]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Union\Performance of Players.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{A8D8A947-8FA3-4810-ACD2-999EC9F00355}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost NBA]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[playerID]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[playerID]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[playerID]"
+                      cachedName="playerID"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[year]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[year]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                      cachedName="year"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[firstname]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[firstname]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[firstname]"
+                      cachedName="firstname"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[lastname]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[lastname]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[lastname]"
+                      cachedName="lastname"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[team]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[team]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[team]"
+                      cachedName="team"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[leag]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[leag]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[leag]"
+                      cachedName="leag"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[gp]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[gp]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[gp]"
+                      cachedName="gp"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[minutes]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[minutes]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[minutes]"
+                      cachedName="minutes"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[pts]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[pts]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[pts]"
+                      cachedName="pts"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[oreb]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[oreb]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[oreb]"
+                      cachedName="oreb"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[dreb]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[dreb]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[dreb]"
+                      cachedName="dreb"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[reb]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[reb]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[reb]"
+                      cachedName="reb"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[asts]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[asts]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[asts]"
+                      cachedName="asts"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[stl]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[stl]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[stl]"
+                      cachedName="stl"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[blk]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[blk]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[blk]"
+                      cachedName="blk"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[turnover]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[turnover]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[turnover]"
+                      cachedName="turnover"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[pf]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[pf]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[pf]"
+                      cachedName="pf"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[fga]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[fga]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[fga]"
+                      cachedName="fga"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[fgm]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[fgm]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[fgm]"
+                      cachedName="fgm"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[fta]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[fta]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[fta]"
+                      cachedName="fta"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[ftm]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[ftm]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[ftm]"
+                      cachedName="ftm"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[tpa]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[tpa]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[tpa]"
+                      cachedName="tpa"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[tpm]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[tpm]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[tpm]"
+                      cachedName="tpm"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].Columns[Season ID]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Season ID]"
+                      externalMetadataColumnId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[Season ID]"
+                      cachedName="Season ID"
+                      cachedDataType="i4" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[playerID]"
+                      name="playerID"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                      name="year"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[firstname]"
+                      name="firstname"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[lastname]"
+                      name="lastname"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[team]"
+                      name="team"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[leag]"
+                      name="leag"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[gp]"
+                      name="gp"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[minutes]"
+                      name="minutes"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[pts]"
+                      name="pts"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[oreb]"
+                      name="oreb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[dreb]"
+                      name="dreb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[reb]"
+                      name="reb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[asts]"
+                      name="asts"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[stl]"
+                      name="stl"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[blk]"
+                      name="blk"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[turnover]"
+                      name="turnover"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[pf]"
+                      name="pf"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[fga]"
+                      name="fga"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[fgm]"
+                      name="fgm"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[fta]"
+                      name="fta"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[ftm]"
+                      name="ftm"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[tpa]"
+                      name="tpa"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[tpm]"
+                      name="tpm"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input].ExternalColumns[Season ID]"
+                      name="Season ID"
+                      dataType="i4" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Union\Performance of Players.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\Performance of Players.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Union\Performance of Players.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Union\Performance of Players.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Union\Performance of Players.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Union\Playoffs"
+              name="Playoffs"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Playoffs$]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Union\Playoffs.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{A8D8A947-8FA3-4810-ACD2-999EC9F00355}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost NBA]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Union\Playoffs.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[playerID]"
+                      name="playerID"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[playerID]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[playerID]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[year]"
+                      name="year"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[year]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[year]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[firstname]"
+                      name="firstname"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[firstname]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[firstname]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[lastname]"
+                      name="lastname"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[lastname]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[lastname]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[team]"
+                      name="team"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[team]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[team]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[leag]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[leag]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[gp]"
+                      name="gp"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[gp]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[gp]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[minutes]"
+                      name="minutes"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[minutes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[minutes]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[pts]"
+                      name="pts"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[pts]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[pts]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[dreb]"
+                      name="dreb"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[dreb]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[dreb]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[oreb]"
+                      name="oreb"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[oreb]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[oreb]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[reb]"
+                      name="reb"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[reb]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[reb]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[asts]"
+                      name="asts"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[asts]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[asts]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[stl]"
+                      name="stl"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[stl]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[stl]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[blk]"
+                      name="blk"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[blk]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[blk]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[turnover]"
+                      name="turnover"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[turnover]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[turnover]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[pf]"
+                      name="pf"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[pf]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[pf]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[fga]"
+                      name="fga"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[fga]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[fga]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[fgm]"
+                      name="fgm"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[fgm]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[fgm]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[fta]"
+                      name="fta"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[fta]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[fta]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[ftm]"
+                      name="ftm"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[ftm]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[ftm]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[tpa]"
+                      name="tpa"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[tpa]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[tpa]" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[tpm]"
+                      name="tpm"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[tpm]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[tpm]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[playerID]"
+                      name="playerID"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                      name="year"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[firstname]"
+                      name="firstname"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[lastname]"
+                      name="lastname"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[team]"
+                      name="team"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[leag]"
+                      name="leag"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[gp]"
+                      name="gp"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[minutes]"
+                      name="minutes"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[pts]"
+                      name="pts"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[dreb]"
+                      name="dreb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[oreb]"
+                      name="oreb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[reb]"
+                      name="reb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[asts]"
+                      name="asts"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[stl]"
+                      name="stl"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[blk]"
+                      name="blk"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[turnover]"
+                      name="turnover"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[pf]"
+                      name="pf"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[fga]"
+                      name="fga"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[fgm]"
+                      name="fgm"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[fta]"
+                      name="fta"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[ftm]"
+                      name="ftm"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[tpa]"
+                      name="tpa"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[tpm]"
+                      name="tpm"
+                      dataType="r8" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[playerID]"
+                      name="playerID"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[playerID]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[year]"
+                      name="year"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[year]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[firstname]"
+                      name="firstname"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[firstname]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[lastname]"
+                      name="lastname"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[lastname]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[team]"
+                      name="team"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[team]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[leag]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[gp]"
+                      name="gp"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[gp]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[minutes]"
+                      name="minutes"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[minutes]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[pts]"
+                      name="pts"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[pts]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[dreb]"
+                      name="dreb"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[dreb]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[oreb]"
+                      name="oreb"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[oreb]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[reb]"
+                      name="reb"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[reb]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[asts]"
+                      name="asts"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[asts]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[stl]"
+                      name="stl"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[stl]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[blk]"
+                      name="blk"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[blk]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[turnover]"
+                      name="turnover"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[turnover]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[pf]"
+                      name="pf"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[pf]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[fga]"
+                      name="fga"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[fga]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[fgm]"
+                      name="fgm"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[fgm]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[fta]"
+                      name="fta"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[fta]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[ftm]"
+                      name="ftm"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[ftm]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[tpa]"
+                      name="tpa"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[tpa]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[tpm]"
+                      name="tpm"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[tpm]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Union\Playoffs season"
+              name="Playoffs season"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              usesDispositions="true"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\Union\Playoffs season.Inputs[Derived Column Input]"
+                  name="Derived Column Input"
+                  description="Input to the Derived Column Transformation">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Union\Playoffs season.Outputs[Derived Column Output]"
+                  name="Derived Column Output"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Union\Playoffs season.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\Playoffs season.Outputs[Derived Column Output].Columns[Season ID]"
+                      name="Season ID"
+                      lineageId="Package\Union\Playoffs season.Outputs[Derived Column Output].Columns[Season ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">1</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Union\Playoffs season.Outputs[Derived Column Error Output]"
+                  name="Derived Column Error Output"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Union\Playoffs season.Inputs[Derived Column Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\Playoffs season.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Union\Playoffs season.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Union\Playoffs season.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Union\Playoffs season.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Union\Regular season"
+              name="Regular season"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              usesDispositions="true"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\Union\Regular season.Inputs[Derived Column Input]"
+                  name="Derived Column Input"
+                  description="Input to the Derived Column Transformation">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Union\Regular season.Outputs[Derived Column Output]"
+                  name="Derived Column Output"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Union\Regular season.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\Regular season.Outputs[Derived Column Output].Columns[Season ID]"
+                      name="Season ID"
+                      lineageId="Package\Union\Regular season.Outputs[Derived Column Output].Columns[Season ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">0</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Union\Regular season.Outputs[Derived Column Error Output]"
+                  name="Derived Column Error Output"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Union\Regular season.Inputs[Derived Column Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\Regular season.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Union\Regular season.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Union\Regular season.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Union\Regular season.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Union\Regular Season"
+              name="Regular Season"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Regular_Season$]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Union\Regular Season.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{A8D8A947-8FA3-4810-ACD2-999EC9F00355}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost NBA]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Union\Regular Season.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[playerID]"
+                      name="playerID"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[playerID]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[playerID]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[year]"
+                      name="year"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[year]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[year]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[firstname]"
+                      name="firstname"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[firstname]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[firstname]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[lastname]"
+                      name="lastname"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[lastname]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[lastname]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[team]"
+                      name="team"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[team]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[team]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[leag]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[leag]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[gp]"
+                      name="gp"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[gp]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[gp]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[minutes]"
+                      name="minutes"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[minutes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[minutes]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[pts]"
+                      name="pts"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[pts]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[pts]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[oreb]"
+                      name="oreb"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[oreb]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[oreb]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[dreb]"
+                      name="dreb"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[dreb]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[dreb]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[reb]"
+                      name="reb"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[reb]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[reb]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[asts]"
+                      name="asts"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[asts]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[asts]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[stl]"
+                      name="stl"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[stl]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[stl]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[blk]"
+                      name="blk"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[blk]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[blk]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[turnover]"
+                      name="turnover"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[turnover]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[turnover]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[pf]"
+                      name="pf"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[pf]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[pf]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[fga]"
+                      name="fga"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[fga]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[fga]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[fgm]"
+                      name="fgm"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[fgm]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[fgm]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[fta]"
+                      name="fta"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[fta]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[fta]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[ftm]"
+                      name="ftm"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[ftm]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[ftm]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[tpa]"
+                      name="tpa"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[tpa]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[tpa]" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[tpm]"
+                      name="tpm"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[tpm]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[tpm]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[playerID]"
+                      name="playerID"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                      name="year"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[firstname]"
+                      name="firstname"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[lastname]"
+                      name="lastname"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[team]"
+                      name="team"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[leag]"
+                      name="leag"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[gp]"
+                      name="gp"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[minutes]"
+                      name="minutes"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[pts]"
+                      name="pts"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[oreb]"
+                      name="oreb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[dreb]"
+                      name="dreb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[reb]"
+                      name="reb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[asts]"
+                      name="asts"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[stl]"
+                      name="stl"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[blk]"
+                      name="blk"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[turnover]"
+                      name="turnover"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[pf]"
+                      name="pf"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[fga]"
+                      name="fga"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[fgm]"
+                      name="fgm"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[fta]"
+                      name="fta"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[ftm]"
+                      name="ftm"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[tpa]"
+                      name="tpa"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Output].ExternalColumns[tpm]"
+                      name="tpm"
+                      dataType="r8" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[playerID]"
+                      name="playerID"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[playerID]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[year]"
+                      name="year"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[year]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[firstname]"
+                      name="firstname"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[firstname]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[lastname]"
+                      name="lastname"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[lastname]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[team]"
+                      name="team"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[team]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[leag]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[gp]"
+                      name="gp"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[gp]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[minutes]"
+                      name="minutes"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[minutes]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[pts]"
+                      name="pts"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[pts]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[oreb]"
+                      name="oreb"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[oreb]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[dreb]"
+                      name="dreb"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[dreb]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[reb]"
+                      name="reb"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[reb]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[asts]"
+                      name="asts"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[asts]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[stl]"
+                      name="stl"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[stl]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[blk]"
+                      name="blk"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[blk]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[turnover]"
+                      name="turnover"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[turnover]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[pf]"
+                      name="pf"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[pf]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[fga]"
+                      name="fga"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[fga]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[fgm]"
+                      name="fgm"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[fgm]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[fta]"
+                      name="fta"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[fta]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[ftm]"
+                      name="ftm"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[ftm]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[tpa]"
+                      name="tpa"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[tpa]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[tpm]"
+                      name="tpm"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[tpm]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Union\Union All"
+              name="Union All"
+              componentClassID="{B594E9A8-4351-4939-891C-CFE1AB93E925}"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              version="1"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <inputs>
+                <input
+                  refId="Package\Union\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[playerID]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[playerID]"
+                      cachedName="playerID"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[playerID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[year]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[year]"
+                      cachedName="year"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[year]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[firstname]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[firstname]"
+                      cachedName="firstname"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[firstname]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[lastname]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[lastname]"
+                      cachedName="lastname"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[lastname]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[team]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[team]"
+                      cachedName="team"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[team]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[leag]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[leag]"
+                      cachedName="leag"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[leag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[gp]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[gp]"
+                      cachedName="gp"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[gp]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[minutes]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[minutes]"
+                      cachedName="minutes"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[minutes]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[pts]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[pts]"
+                      cachedName="pts"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[pts]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[oreb]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[oreb]"
+                      cachedName="oreb"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[oreb]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[dreb]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[dreb]"
+                      cachedName="dreb"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[dreb]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[reb]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[reb]"
+                      cachedName="reb"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[reb]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[asts]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[asts]"
+                      cachedName="asts"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[asts]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[stl]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[stl]"
+                      cachedName="stl"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[stl]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[blk]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[blk]"
+                      cachedName="blk"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[blk]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[turnover]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[turnover]"
+                      cachedName="turnover"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[turnover]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[pf]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[pf]"
+                      cachedName="pf"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[pf]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[fga]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[fga]"
+                      cachedName="fga"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[fga]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[fgm]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[fgm]"
+                      cachedName="fgm"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[fgm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[fta]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[fta]"
+                      cachedName="fta"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[fta]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[ftm]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[ftm]"
+                      cachedName="ftm"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[ftm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[tpa]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[tpa]"
+                      cachedName="tpa"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[tpa]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[tpm]"
+                      lineageId="Package\Union\Regular Season.Outputs[OLE DB Source Output].Columns[tpm]"
+                      cachedName="tpm"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[tpm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[Season ID]"
+                      lineageId="Package\Union\Regular season.Outputs[Derived Column Output].Columns[Season ID]"
+                      cachedName="Season ID"
+                      cachedDataType="i4">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Season ID]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Union\Union All.Inputs[Union All Input 2]"
+                  name="Union All Input 2"
+                  hasSideEffects="true">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[playerID]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[playerID]"
+                      cachedName="playerID"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[playerID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[year]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[year]"
+                      cachedName="year"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[year]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[firstname]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[firstname]"
+                      cachedName="firstname"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[firstname]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[lastname]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[lastname]"
+                      cachedName="lastname"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[lastname]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[team]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[team]"
+                      cachedName="team"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[team]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[leag]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[leag]"
+                      cachedName="leag"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[leag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[gp]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[gp]"
+                      cachedName="gp"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[gp]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[minutes]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[minutes]"
+                      cachedName="minutes"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[minutes]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[pts]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[pts]"
+                      cachedName="pts"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[pts]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[dreb]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[dreb]"
+                      cachedName="dreb"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[dreb]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[oreb]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[oreb]"
+                      cachedName="oreb"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[oreb]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[reb]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[reb]"
+                      cachedName="reb"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[reb]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[asts]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[asts]"
+                      cachedName="asts"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[asts]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[stl]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[stl]"
+                      cachedName="stl"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[stl]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[blk]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[blk]"
+                      cachedName="blk"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[blk]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[turnover]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[turnover]"
+                      cachedName="turnover"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[turnover]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[pf]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[pf]"
+                      cachedName="pf"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[pf]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[fga]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[fga]"
+                      cachedName="fga"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[fga]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[fgm]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[fgm]"
+                      cachedName="fgm"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[fgm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[fta]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[fta]"
+                      cachedName="fta"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[fta]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[ftm]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[ftm]"
+                      cachedName="ftm"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[ftm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[tpa]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[tpa]"
+                      cachedName="tpa"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[tpa]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[tpm]"
+                      lineageId="Package\Union\Playoffs.Outputs[OLE DB Source Output].Columns[tpm]"
+                      cachedName="tpm"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[tpm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[Season ID]"
+                      lineageId="Package\Union\Playoffs season.Outputs[Derived Column Output].Columns[Season ID]"
+                      cachedName="Season ID"
+                      cachedDataType="i4">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Season ID]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Union\Union All.Inputs[Union All Input 3]"
+                  name="Union All Input 3"
+                  hasSideEffects="true"
+                  dangling="true">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Union\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[playerID]"
+                      name="playerID"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[playerID]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[year]"
+                      name="year"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[year]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[firstname]"
+                      name="firstname"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[firstname]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[lastname]"
+                      name="lastname"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[lastname]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[team]"
+                      name="team"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[team]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[leag]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[gp]"
+                      name="gp"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[gp]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[minutes]"
+                      name="minutes"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[minutes]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[pts]"
+                      name="pts"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[pts]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[oreb]"
+                      name="oreb"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[oreb]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[dreb]"
+                      name="dreb"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[dreb]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[reb]"
+                      name="reb"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[reb]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[asts]"
+                      name="asts"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[asts]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[stl]"
+                      name="stl"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[stl]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[blk]"
+                      name="blk"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[blk]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[turnover]"
+                      name="turnover"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[turnover]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[pf]"
+                      name="pf"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[pf]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[fga]"
+                      name="fga"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[fga]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[fgm]"
+                      name="fgm"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[fgm]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[fta]"
+                      name="fta"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[fta]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[ftm]"
+                      name="ftm"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[ftm]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[tpa]"
+                      name="tpa"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[tpa]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[tpm]"
+                      name="tpm"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[tpm]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Season ID]"
+                      name="Season ID"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Season ID]"
+                      dataType="i4" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Union.Paths[Derived Column Output1]"
+              name="Derived Column Output"
+              startId="Package\Union\Regular season.Outputs[Derived Column Output]"
+              endId="Package\Union\Union All.Inputs[Union All Input 1]" />
+            <path
+              refId="Package\Union.Paths[Derived Column Output]"
+              name="Derived Column Output"
+              startId="Package\Union\Playoffs season.Outputs[Derived Column Output]"
+              endId="Package\Union\Union All.Inputs[Union All Input 2]" />
+            <path
+              refId="Package\Union.Paths[OLE DB Source Output1]"
+              name="OLE DB Source Output"
+              startId="Package\Union\Playoffs.Outputs[OLE DB Source Output]"
+              endId="Package\Union\Playoffs season.Inputs[Derived Column Input]" />
+            <path
+              refId="Package\Union.Paths[OLE DB Source Output]"
+              name="OLE DB Source Output"
+              startId="Package\Union\Regular Season.Outputs[OLE DB Source Output]"
+              endId="Package\Union\Regular season.Inputs[Derived Column Input]" />
+            <path
+              refId="Package\Union.Paths[Union All Output 1]"
+              name="Union All Output 1"
+              startId="Package\Union\Union All.Outputs[Union All Output 1]"
+              endId="Package\Union\Performance of Players.Inputs[OLE DB Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="107.560209424084,42.2198952879582"
+          Id="Package\Union"
+          TopLeft="64.586387434555,34.9319371727749" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Union">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153.298429319372,42.2198952879582"
+          Id="Package\Union\Regular Season"
+          TopLeft="38.9528795811518,61.0680628272251" />
+        <NodeLayout
+          Size="117.10994764398,42.2198952879582"
+          Id="Package\Union\Playoffs"
+          TopLeft="277.193717277487,63.0785340314136" />
+        <NodeLayout
+          Size="152.293193717278,42.2198952879582"
+          Id="Package\Union\Regular season"
+          TopLeft="42.9738219895288,136.460732984293" />
+        <EdgeLayout
+          Id="Package\Union.Paths[OLE DB Source Output]"
+          TopLeft="117.361256544503,103.287958115183">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.17277486911"
+              Start="0,0"
+              End="0,25.67277486911">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.67277486911" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.795811518325,42.2198952879582"
+          Id="Package\Union\Playoffs season"
+          TopLeft="262.61780104712,133.44502617801" />
+        <EdgeLayout
+          Id="Package\Union.Paths[OLE DB Source Output1]"
+          TopLeft="337.38219895288,105.298429319372">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.1465968586388"
+              Start="0,0"
+              End="0,20.6465968586388">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6465968586388" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="122.136125654451,42.2198952879582"
+          Id="Package\Union\Union All"
+          TopLeft="168.628272251309,232.96335078534" />
+        <EdgeLayout
+          Id="Package\Union.Paths[Derived Column Output1]"
+          TopLeft="119.120418848168,178.680628272251">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="110.575916230367,54.282722513089"
+              Start="0,0"
+              End="110.575916230367,46.782722513089">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.1413612565445" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.1413612565445"
+                    Point2="0,27.1413612565445"
+                    Point3="4,27.1413612565445" />
+                  <mssgle:LineSegment
+                    End="106.575916230367,27.1413612565445" />
+                  <mssgle:CubicBezierSegment
+                    Point1="106.575916230367,27.1413612565445"
+                    Point2="110.575916230367,27.1413612565445"
+                    Point3="110.575916230367,31.1413612565445" />
+                  <mssgle:LineSegment
+                    End="110.575916230367,46.782722513089" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Union.Paths[Derived Column Output]"
+          TopLeft="339.015706806283,175.664921465969">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-90.2966841186737,57.2984293193717"
+              Start="0,0"
+              End="-90.2966841186737,49.7984293193717">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.9345108446188" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.9345108446188"
+                    Point2="0,33.9345108446188"
+                    Point3="-4,33.9345108446188" />
+                  <mssgle:LineSegment
+                    End="-86.2966841186737,33.9345108446188" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-86.2966841186737,33.9345108446188"
+                    Point2="-90.2966841186737,33.9345108446188"
+                    Point3="-90.2966841186737,37.9345108446188" />
+                  <mssgle:LineSegment
+                    End="-90.2966841186737,49.7984293193717" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="188.984293193718,42.2198952879582"
+          Id="Package\Union\Performance of Players"
+          TopLeft="137.968586387434,319.413612565445" />
+        <EdgeLayout
+          Id="Package\Union.Paths[Union All Output 1]"
+          TopLeft="231.078534031414,275.183246073298">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.2303664921466"
+              Start="0,0"
+              End="0,36.7303664921466">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.7303664921466" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Union\Regular Season">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Union\Playoffs">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Union\Performance of Players">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,45 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="5cdb4e90-8d66-4e44-8f32-f5ba2949a31c" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>NBA</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Performance Of Teams</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="99f699ef-a264-4d0d-9bc7-9873082e15b0">
+          <ID>Performance Of Teams</ID>
+          <Name>Performance Of Teams</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="b39b1406-0b59-4074-abbc-5841b80cb0d6">
+            <DataSourceViewID>NBA</DataSourceViewID>
+            <TableID>dbo_Performance_x0020_of_x0020_Teams</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Performance Of Players</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3f193146-dca6-437f-b33b-ec9c2904378e">
+          <ID>Performance Of Players</ID>
+          <Name>Performance Of Players</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="2871c2e7-4417-49f6-a309-4004e07b8dd2">
+            <DataSourceViewID>NBA</DataSourceViewID>
+            <TableID>dbo_Performance_x0020_of_x0020_Players</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

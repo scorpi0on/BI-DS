@@ -1,0 +1,1808 @@
+<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="demo-PC\demo"
+  DTS:CreatorComputerName="DEMO-PC"
+  DTS:CreationDate="4/8/2020 9:36:34 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{9F1E8A2B-3EA0-4D1A-AA44-B256B4546805}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Count"
+  DTS:DTSID="{103A4731-E13D-4FB1-A123-78D4444381FA}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="6789"
+      DTS:ObjectName="Playoffs"
+      DTS:DTSID="{E6D1D733-BBFF-4896-A11B-78440DC1EBED}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Count"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Count"
+      DTS:DTSID="{D19C3D57-C867-4BF1-B5AD-42CB818EC418}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Count\Derived Column"
+              name="Derived Column"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              usesDispositions="true"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\Count\Derived Column.Inputs[Derived Column Input]"
+                  name="Derived Column Input"
+                  description="Input to the Derived Column Transformation">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Count\Derived Column.Outputs[Derived Column Output]"
+                  name="Derived Column Output"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Count\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Count\Derived Column.Outputs[Derived Column Output].Columns[Playoff Count]"
+                      name="Playoff Count"
+                      lineageId="Package\Count\Derived Column.Outputs[Derived Column Output].Columns[Playoff Count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">@[User::Playoffs]</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">@[User::Playoffs]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Count\Derived Column.Outputs[Derived Column Error Output]"
+                  name="Derived Column Error Output"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Count\Derived Column.Inputs[Derived Column Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Count\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Count\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Count\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Count\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Count\OLE DB Destination"
+              name="OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[OLE DB Destination]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Count\OLE DB Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{A8D8A947-8FA3-4810-ACD2-999EC9F00355}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost NBA]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Playoff Count]"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[Playoff Count]"
+                      externalMetadataColumnId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[playerID]"
+                      cachedName="Playoff Count"
+                      cachedDataType="i4"
+                      cachedSortKeyPosition="1" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Playoff Count]"
+                      name="Playoff Count"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[playerID]"
+                      name="playerID"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                      name="year"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[firstname]"
+                      name="firstname"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lastname]"
+                      name="lastname"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[team]"
+                      name="team"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[leag]"
+                      name="leag"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gp]"
+                      name="gp"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[minutes]"
+                      name="minutes"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pts]"
+                      name="pts"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dreb]"
+                      name="dreb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[oreb]"
+                      name="oreb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[reb]"
+                      name="reb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[asts]"
+                      name="asts"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stl]"
+                      name="stl"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[blk]"
+                      name="blk"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[turnover]"
+                      name="turnover"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pf]"
+                      name="pf"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fga]"
+                      name="fga"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fgm]"
+                      name="fgm"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fta]"
+                      name="fta"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ftm]"
+                      name="ftm"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tpa]"
+                      name="tpa"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tpm]"
+                      name="tpm"
+                      dataType="r8" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Count\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Count\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Count\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Count\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Count\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Count\Playoffs"
+              name="Playoffs"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Playoffs$]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Count\Playoffs.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{A8D8A947-8FA3-4810-ACD2-999EC9F00355}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost NBA]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Count\Playoffs.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[playerID]"
+                      name="playerID"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[playerID]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[playerID]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[year]"
+                      name="year"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[year]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[year]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[firstname]"
+                      name="firstname"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[firstname]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[firstname]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[lastname]"
+                      name="lastname"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[lastname]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[lastname]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[team]"
+                      name="team"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[team]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[team]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[leag]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[leag]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[gp]"
+                      name="gp"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[gp]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[gp]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[minutes]"
+                      name="minutes"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[minutes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[minutes]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[pts]"
+                      name="pts"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[pts]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[pts]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[dreb]"
+                      name="dreb"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[dreb]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[dreb]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[oreb]"
+                      name="oreb"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[oreb]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[oreb]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[reb]"
+                      name="reb"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[reb]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[reb]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[asts]"
+                      name="asts"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[asts]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[asts]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[stl]"
+                      name="stl"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[stl]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[stl]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[blk]"
+                      name="blk"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[blk]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[blk]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[turnover]"
+                      name="turnover"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[turnover]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[turnover]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[pf]"
+                      name="pf"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[pf]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[pf]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[fga]"
+                      name="fga"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[fga]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[fga]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[fgm]"
+                      name="fgm"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[fgm]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[fgm]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[fta]"
+                      name="fta"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[fta]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[fta]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[ftm]"
+                      name="ftm"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[ftm]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[ftm]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[tpa]"
+                      name="tpa"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[tpa]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[tpa]" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[tpm]"
+                      name="tpm"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[tpm]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[tpm]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[playerID]"
+                      name="playerID"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                      name="year"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[firstname]"
+                      name="firstname"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[lastname]"
+                      name="lastname"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[team]"
+                      name="team"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[leag]"
+                      name="leag"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[gp]"
+                      name="gp"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[minutes]"
+                      name="minutes"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[pts]"
+                      name="pts"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[dreb]"
+                      name="dreb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[oreb]"
+                      name="oreb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[reb]"
+                      name="reb"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[asts]"
+                      name="asts"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[stl]"
+                      name="stl"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[blk]"
+                      name="blk"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[turnover]"
+                      name="turnover"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[pf]"
+                      name="pf"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[fga]"
+                      name="fga"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[fgm]"
+                      name="fgm"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[fta]"
+                      name="fta"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[ftm]"
+                      name="ftm"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[tpa]"
+                      name="tpa"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Output].ExternalColumns[tpm]"
+                      name="tpm"
+                      dataType="r8" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[playerID]"
+                      name="playerID"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[playerID]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[year]"
+                      name="year"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[year]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[firstname]"
+                      name="firstname"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[firstname]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[lastname]"
+                      name="lastname"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[lastname]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[team]"
+                      name="team"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[team]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[leag]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[gp]"
+                      name="gp"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[gp]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[minutes]"
+                      name="minutes"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[minutes]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[pts]"
+                      name="pts"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[pts]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[dreb]"
+                      name="dreb"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[dreb]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[oreb]"
+                      name="oreb"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[oreb]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[reb]"
+                      name="reb"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[reb]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[asts]"
+                      name="asts"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[asts]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[stl]"
+                      name="stl"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[stl]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[blk]"
+                      name="blk"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[blk]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[turnover]"
+                      name="turnover"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[turnover]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[pf]"
+                      name="pf"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[pf]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[fga]"
+                      name="fga"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[fga]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[fgm]"
+                      name="fgm"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[fgm]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[fta]"
+                      name="fta"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[fta]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[ftm]"
+                      name="ftm"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[ftm]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[tpa]"
+                      name="tpa"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[tpa]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[tpm]"
+                      name="tpm"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[tpm]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Count\Playoffs Row Count"
+              name="Playoffs Row Count"
+              componentClassID="{E2697D8C-70DA-42B2-8208-A19CE3A9FE41}"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <properties>
+                <property
+                  name="VariableName"
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count.">User::Playoffs</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Count\Playoffs Row Count.Inputs[Row Count Input 1]"
+                  name="Row Count Input 1"
+                  hasSideEffects="true">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Count\Playoffs Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Count\Playoffs Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Count\Sort"
+              name="Sort"
+              componentClassID="{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              version="1"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="EliminateDuplicates"
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values.">false</property>
+                <property
+                  name="MaximumThreads"
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Count\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[playerID]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[playerID]"
+                      cachedName="playerID"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[year]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[year]"
+                      cachedName="year"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[firstname]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[firstname]"
+                      cachedName="firstname"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[lastname]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[lastname]"
+                      cachedName="lastname"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[team]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[team]"
+                      cachedName="team"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[leag]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[leag]"
+                      cachedName="leag"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[gp]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[gp]"
+                      cachedName="gp"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[minutes]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[minutes]"
+                      cachedName="minutes"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[pts]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[pts]"
+                      cachedName="pts"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[dreb]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[dreb]"
+                      cachedName="dreb"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[oreb]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[oreb]"
+                      cachedName="oreb"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[reb]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[reb]"
+                      cachedName="reb"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[asts]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[asts]"
+                      cachedName="asts"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[stl]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[stl]"
+                      cachedName="stl"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[blk]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[blk]"
+                      cachedName="blk"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[turnover]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[turnover]"
+                      cachedName="turnover"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[pf]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[pf]"
+                      cachedName="pf"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[fga]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[fga]"
+                      cachedName="fga"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[fgm]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[fgm]"
+                      cachedName="fgm"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[fta]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[fta]"
+                      cachedName="fta"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[ftm]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[ftm]"
+                      cachedName="ftm"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[tpa]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[tpa]"
+                      cachedName="tpa"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[tpm]"
+                      lineageId="Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[tpm]"
+                      cachedName="tpm"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Count\Sort.Inputs[Sort Input].Columns[Playoff Count]"
+                      lineageId="Package\Count\Derived Column.Outputs[Derived Column Output].Columns[Playoff Count]"
+                      cachedName="Playoff Count"
+                      cachedDataType="i4">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Count\Sort.Outputs[Sort Output]"
+                  name="Sort Output"
+                  isSorted="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[playerID]"
+                      name="playerID"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[playerID]"
+                      length="255"
+                      dataType="wstr">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[playerID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[year]"
+                      name="year"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[year]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[year]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[firstname]"
+                      name="firstname"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[firstname]"
+                      length="255"
+                      dataType="wstr">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[firstname]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[lastname]"
+                      name="lastname"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[lastname]"
+                      length="255"
+                      dataType="wstr">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[lastname]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[team]"
+                      name="team"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[team]"
+                      length="255"
+                      dataType="wstr">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[team]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[leag]"
+                      length="255"
+                      dataType="wstr">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[leag]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[gp]"
+                      name="gp"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[gp]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[gp]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[minutes]"
+                      name="minutes"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[minutes]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[minutes]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[pts]"
+                      name="pts"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[pts]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[pts]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[dreb]"
+                      name="dreb"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[dreb]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[dreb]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[oreb]"
+                      name="oreb"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[oreb]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[oreb]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[reb]"
+                      name="reb"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[reb]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[reb]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[asts]"
+                      name="asts"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[asts]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[asts]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[stl]"
+                      name="stl"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[stl]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[stl]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[blk]"
+                      name="blk"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[blk]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[blk]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[turnover]"
+                      name="turnover"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[turnover]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[turnover]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[pf]"
+                      name="pf"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[pf]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[pf]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[fga]"
+                      name="fga"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[fga]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[fga]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[fgm]"
+                      name="fgm"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[fgm]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[fgm]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[fta]"
+                      name="fta"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[fta]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[fta]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[ftm]"
+                      name="ftm"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[ftm]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[ftm]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[tpa]"
+                      name="tpa"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[tpa]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[tpa]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[tpm]"
+                      name="tpm"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[tpm]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Playoffs.Outputs[OLE DB Source Output].Columns[tpm]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Count\Sort.Outputs[Sort Output].Columns[Playoff Count]"
+                      name="Playoff Count"
+                      lineageId="Package\Count\Sort.Outputs[Sort Output].Columns[Playoff Count]"
+                      dataType="i4"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Count\Derived Column.Outputs[Derived Column Output].Columns[Playoff Count]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Count.Paths[Derived Column Output]"
+              name="Derived Column Output"
+              startId="Package\Count\Derived Column.Outputs[Derived Column Output]"
+              endId="Package\Count\Sort.Inputs[Sort Input]" />
+            <path
+              refId="Package\Count.Paths[OLE DB Source Output]"
+              name="OLE DB Source Output"
+              startId="Package\Count\Playoffs.Outputs[OLE DB Source Output]"
+              endId="Package\Count\Playoffs Row Count.Inputs[Row Count Input 1]" />
+            <path
+              refId="Package\Count.Paths[Row Count Output 1]"
+              name="Row Count Output 1"
+              startId="Package\Count\Playoffs Row Count.Outputs[Row Count Output 1]"
+              endId="Package\Count\Derived Column.Inputs[Derived Column Input]" />
+            <path
+              refId="Package\Count.Paths[Sort Output]"
+              name="Sort Output"
+              startId="Package\Count\Sort.Outputs[Sort Output]"
+              endId="Package\Count\OLE DB Destination.Inputs[OLE DB Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="108.062827225131,42.2198952879582"
+          Id="Package\Count"
+          TopLeft="57.5497382198953,29.4031413612565" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Count">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171.392670157069,42.2198952879582"
+          Id="Package\Count\Playoffs Row Count"
+          TopLeft="141.486910994764,128.921465968586" />
+        <NodeLayout
+          Size="117.10994764398,42.2198952879582"
+          Id="Package\Count\Playoffs"
+          TopLeft="166.785340314136,33.4240837696335" />
+        <NodeLayout
+          Size="155.308900523561,42.2198952879582"
+          Id="Package\Count\Derived Column"
+          TopLeft="151.204188481675,205.65445026178" />
+        <EdgeLayout
+          Id="Package\Count.Paths[Row Count Output 1]"
+          TopLeft="228.020942408377,171.141361256544">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.5130890052359"
+              Start="0,0"
+              End="0,27.0130890052359">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.0130890052359" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Count.Paths[OLE DB Source Output]"
+          TopLeft="226.261780104712,75.6439790575916">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.2774869109944"
+              Start="0,0"
+              End="0,45.7774869109944">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.7774869109944" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172.397905759163,42.2198952879582"
+          Id="Package\Count\OLE DB Destination"
+          TopLeft="139.979057591623,375.706806282723" />
+        <NodeLayout
+          Size="99.5183246073299,42.2198952879582"
+          Id="Package\Count\Sort"
+          TopLeft="176.167539267016,283.727748691099" />
+        <EdgeLayout
+          Id="Package\Count.Paths[Derived Column Output]"
+          TopLeft="227.392670157068,247.874345549738">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.8534031413614"
+              Start="0,0"
+              End="0,28.3534031413614">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.3534031413614" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Count.Paths[Sort Output]"
+          TopLeft="226.052356020942,325.947643979058">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.7591623036649"
+              Start="0,0"
+              End="0,42.2591623036649">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.2591623036649" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Count\Playoffs">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Count\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

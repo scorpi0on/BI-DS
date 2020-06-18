@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ToolsVersion="2.0">
+  <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD5mYWxzZTwvRW5hYmxlZD4NCiAgPFByb2plY3ROYW1lPjwvUHJvamVjdE5hbWU+DQogIDxBdXhQYXRoPjwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD48L0xvY2FsUGF0aD4NCiAgPFByb3ZpZGVyPjwvUHJvdmlkZXI+DQo8L1NvdXJjZUNvbnRyb2xJbmZvPg==</State>
+  <DataSources>
+    <ProjectItem>
+      <Name>ConnectNBACube.rds</Name>
+      <FullPath>ConnectNBACube.rds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSets />
+  <Reports>
+    <ProjectItem>
+      <Name>Q2.rdl</Name>
+      <FullPath>Q2.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Q3.rdl</Name>
+      <FullPath>Q3.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Q1.rdl</Name>
+      <FullPath>Q1.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Q4.rdl</Name>
+      <FullPath>Q4.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Q5.rdl</Name>
+      <FullPath>Q5.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Q6.rdl</Name>
+      <FullPath>Q6.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Q7.rdl</Name>
+      <FullPath>Q7.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Q8.rdl</Name>
+      <FullPath>Q8.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Q9.rdl</Name>
+      <FullPath>Q9.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Q10.rdl</Name>
+      <FullPath>Q10.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Q11.rdl</Name>
+      <FullPath>Q11.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Q12.rdl</Name>
+      <FullPath>Q12.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Q13.rdl</Name>
+      <FullPath>Q13.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Q14.rdl</Name>
+      <FullPath>Q14.rdl</FullPath>
+    </ProjectItem>
+  </Reports>
+  <Configurations>
+    <Configuration>
+      <Name>Debug</Name>
+      <Platform>Win32</Platform>
+      <Options>
+        <OutputPath>bin\Debug</OutputPath>
+        <TargetServerVersion>SSRS2008R2</TargetServerVersion>
+        <TargetServerURL>http://localhost/ReportServer</TargetServerURL>
+        <TargetFolder>RPNBA</TargetFolder>
+        <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
+        <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+        <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+        <StartItem>Report1.rdl</StartItem>
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>DebugLocal</Name>
+      <Platform>Win32</Platform>
+      <Options>
+        <OutputPath>bin\DebugLocal</OutputPath>
+        <TargetServerVersion>SSRS2008R2</TargetServerVersion>
+        <TargetFolder>RPNBA</TargetFolder>
+        <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
+        <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+        <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>Release</Name>
+      <Platform>Win32</Platform>
+      <Options>
+        <OutputPath>bin\Release</OutputPath>
+        <TargetServerVersion>SSRS2008R2</TargetServerVersion>
+        <TargetFolder>RPNBA</TargetFolder>
+        <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
+        <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+        <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+      </Options>
+    </Configuration>
+  </Configurations>
+</Project>

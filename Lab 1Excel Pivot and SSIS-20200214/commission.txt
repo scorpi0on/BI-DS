@@ -1,0 +1,10 @@
+Salesperson	commission rate
+Buchanan	0.02
+Suyama	0.03
+Peacock	0.01
+Leverling	0.01
+Dodsworth	0.01
+Davolio	0.04
+Callahan	0.02
+Fuller	0.04
+King	0.03

@@ -1,0 +1,1315 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="demo-PC\demo"
+  DTS:CreatorComputerName="DEMO-PC"
+  DTS:CreationDate="3/31/2020 12:58:57 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{FBC7600F-4034-4BA9-9F9C-4074A520F83B}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Merge"
+  DTS:DTSID="{039121AC-522D-4192-91CB-23648C1DD877}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Merge"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Merge"
+      DTS:DTSID="{417ABDC2-00D5-44CC-AD7D-B1E2C5941677}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Merge\Derived Column"
+              name="Derived Column"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              usesDispositions="true"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\Merge\Derived Column.Inputs[Derived Column Input]"
+                  name="Derived Column Input"
+                  description="Input to the Derived Column Transformation">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Merge\Derived Column.Inputs[Derived Column Input].Columns[team]"
+                      lineageId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[team]"
+                      cachedName="team"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Merge\Derived Column.Inputs[Derived Column Input].Columns[leag]"
+                      lineageId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[leag]"
+                      cachedName="leag"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Merge\Derived Column.Outputs[Derived Column Output]"
+                  name="Derived Column Output"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Merge\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge\Derived Column.Outputs[Derived Column Output].Columns[TeamLeagID]"
+                      name="TeamLeagID"
+                      lineageId="Package\Merge\Derived Column.Outputs[Derived Column Output].Columns[TeamLeagID]"
+                      length="510"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">#{Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[team]} + #{Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[leag]}</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">team + leag</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Merge\Derived Column.Outputs[Derived Column Error Output]"
+                  name="Derived Column Error Output"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Merge\Derived Column.Inputs[Derived Column Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Merge\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Merge\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Merge\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Merge\Merge Join"
+              name="Merge Join"
+              componentClassID="{14D43A4F-D7BD-489D-829E-6DE35750CFE4}"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              version="1"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="JoinType"
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  typeConverter="JoinType">2</property>
+                <property
+                  name="NumKeyColumns"
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key.">1</property>
+                <property
+                  name="TreatNullsAsEqual"
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values.">true</property>
+                <property
+                  name="MaxBuffersPerInput"
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking.">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Merge\Merge Join.Inputs[Merge Join Left Input]"
+                  name="Merge Join Left Input"
+                  hasSideEffects="true">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Merge\Merge Join.Inputs[Merge Join Left Input].Columns[State Code]"
+                      lineageId="Package\Merge\Sort 1.Outputs[Sort Output].Columns[State Code]"
+                      cachedName="State Code"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedSortKeyPosition="1" />
+                    <inputColumn
+                      refId="Package\Merge\Merge Join.Inputs[Merge Join Left Input].Columns[team]"
+                      lineageId="Package\Merge\Sort 1.Outputs[Sort Output].Columns[team]"
+                      cachedName="team"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Merge\Merge Join.Inputs[Merge Join Left Input].Columns[Team Name]"
+                      lineageId="Package\Merge\Sort 1.Outputs[Sort Output].Columns[Team Name]"
+                      cachedName="Team Name"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Merge\Merge Join.Inputs[Merge Join Left Input].Columns[leag]"
+                      lineageId="Package\Merge\Sort 1.Outputs[Sort Output].Columns[leag]"
+                      cachedName="leag"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Merge\Merge Join.Inputs[Merge Join Right Input]"
+                  name="Merge Join Right Input"
+                  hasSideEffects="true">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Merge\Merge Join.Inputs[Merge Join Right Input].Columns[State Code]"
+                      lineageId="Package\Merge\Sort.Outputs[Sort Output].Columns[State Code]"
+                      cachedName="State Code"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedSortKeyPosition="1" />
+                    <inputColumn
+                      refId="Package\Merge\Merge Join.Inputs[Merge Join Right Input].Columns[State]"
+                      lineageId="Package\Merge\Sort.Outputs[Sort Output].Columns[State]"
+                      cachedName="State"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Merge\Merge Join.Outputs[Merge Join Output]"
+                  name="Merge Join Output"
+                  isSorted="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[team]"
+                      name="team"
+                      lineageId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[team]"
+                      length="255"
+                      dataType="wstr">
+                      <properties>
+                        <property
+                          name="InputColumnID"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          containsID="true">#{Package\Merge\Merge Join.Inputs[Merge Join Left Input].Columns[team]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[Team Name]"
+                      name="Team Name"
+                      lineageId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[Team Name]"
+                      length="255"
+                      dataType="wstr">
+                      <properties>
+                        <property
+                          name="InputColumnID"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          containsID="true">#{Package\Merge\Merge Join.Inputs[Merge Join Left Input].Columns[Team Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[leag]"
+                      length="255"
+                      dataType="wstr">
+                      <properties>
+                        <property
+                          name="InputColumnID"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          containsID="true">#{Package\Merge\Merge Join.Inputs[Merge Join Left Input].Columns[leag]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[State Code]"
+                      name="State Code"
+                      lineageId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[State Code]"
+                      length="255"
+                      dataType="wstr"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          name="InputColumnID"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          containsID="true">#{Package\Merge\Merge Join.Inputs[Merge Join Left Input].Columns[State Code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[State]"
+                      name="State"
+                      lineageId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[State]"
+                      length="255"
+                      dataType="wstr">
+                      <properties>
+                        <property
+                          name="InputColumnID"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          containsID="true">#{Package\Merge\Merge Join.Inputs[Merge Join Right Input].Columns[State]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Merge\Sort"
+              name="Sort"
+              componentClassID="{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              version="1"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="EliminateDuplicates"
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values.">false</property>
+                <property
+                  name="MaximumThreads"
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Merge\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Merge\Sort.Inputs[Sort Input].Columns[State Code]"
+                      lineageId="Package\Merge\States.Outputs[OLE DB Source Output].Columns[State Code]"
+                      cachedName="State Code"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge\Sort.Inputs[Sort Input].Columns[State]"
+                      lineageId="Package\Merge\States.Outputs[OLE DB Source Output].Columns[State]"
+                      cachedName="State"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Merge\Sort.Outputs[Sort Output]"
+                  name="Sort Output"
+                  isSorted="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge\Sort.Outputs[Sort Output].Columns[State Code]"
+                      name="State Code"
+                      lineageId="Package\Merge\Sort.Outputs[Sort Output].Columns[State Code]"
+                      length="255"
+                      dataType="wstr"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Merge\States.Outputs[OLE DB Source Output].Columns[State Code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge\Sort.Outputs[Sort Output].Columns[State]"
+                      name="State"
+                      lineageId="Package\Merge\Sort.Outputs[Sort Output].Columns[State]"
+                      length="255"
+                      dataType="wstr">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Merge\States.Outputs[OLE DB Source Output].Columns[State]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Merge\Sort 1"
+              name="Sort 1"
+              componentClassID="{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              version="1"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="EliminateDuplicates"
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values.">false</property>
+                <property
+                  name="MaximumThreads"
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Merge\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Merge\Sort 1.Inputs[Sort Input].Columns[team]"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[team]"
+                      cachedName="team"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge\Sort 1.Inputs[Sort Input].Columns[Team Name]"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[Team Name]"
+                      cachedName="Team Name"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge\Sort 1.Inputs[Sort Input].Columns[leag]"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[leag]"
+                      cachedName="leag"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge\Sort 1.Inputs[Sort Input].Columns[State Code]"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[State Code]"
+                      cachedName="State Code"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Merge\Sort 1.Outputs[Sort Output]"
+                  name="Sort Output"
+                  isSorted="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge\Sort 1.Outputs[Sort Output].Columns[team]"
+                      name="team"
+                      lineageId="Package\Merge\Sort 1.Outputs[Sort Output].Columns[team]"
+                      length="255"
+                      dataType="wstr">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[team]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge\Sort 1.Outputs[Sort Output].Columns[Team Name]"
+                      name="Team Name"
+                      lineageId="Package\Merge\Sort 1.Outputs[Sort Output].Columns[Team Name]"
+                      length="255"
+                      dataType="wstr">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[Team Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge\Sort 1.Outputs[Sort Output].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\Merge\Sort 1.Outputs[Sort Output].Columns[leag]"
+                      length="255"
+                      dataType="wstr">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[leag]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge\Sort 1.Outputs[Sort Output].Columns[State Code]"
+                      name="State Code"
+                      lineageId="Package\Merge\Sort 1.Outputs[Sort Output].Columns[State Code]"
+                      length="255"
+                      dataType="wstr"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[State Code]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Merge\States"
+              name="States"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[State$]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Merge\States.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{A8D8A947-8FA3-4810-ACD2-999EC9F00355}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost NBA]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Merge\States.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge\States.Outputs[OLE DB Source Output].Columns[State Code]"
+                      name="State Code"
+                      lineageId="Package\Merge\States.Outputs[OLE DB Source Output].Columns[State Code]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge\States.Outputs[OLE DB Source Output].ExternalColumns[State Code]" />
+                    <outputColumn
+                      refId="Package\Merge\States.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      lineageId="Package\Merge\States.Outputs[OLE DB Source Output].Columns[State]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge\States.Outputs[OLE DB Source Output].ExternalColumns[State]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Merge\States.Outputs[OLE DB Source Output].ExternalColumns[State Code]"
+                      name="State Code"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Merge\States.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      name="State"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Merge\States.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge\States.Outputs[OLE DB Source Error Output].Columns[State Code]"
+                      name="State Code"
+                      lineageId="Package\Merge\States.Outputs[OLE DB Source Error Output].Columns[State Code]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Merge\States.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State"
+                      lineageId="Package\Merge\States.Outputs[OLE DB Source Error Output].Columns[State]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Merge\States.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Merge\States.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Merge\States.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Merge\States.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Merge\Teams"
+              name="Teams"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Teams$]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Merge\Teams.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{A8D8A947-8FA3-4810-ACD2-999EC9F00355}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost NBA]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Merge\Teams.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[team]"
+                      name="team"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[team]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge\Teams.Outputs[OLE DB Source Output].ExternalColumns[team]" />
+                    <outputColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[Team Name]"
+                      name="Team Name"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[Team Name]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge\Teams.Outputs[OLE DB Source Output].ExternalColumns[Team Name]" />
+                    <outputColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[leag]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge\Teams.Outputs[OLE DB Source Output].ExternalColumns[leag]" />
+                    <outputColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[State Code]"
+                      name="State Code"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Output].Columns[State Code]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge\Teams.Outputs[OLE DB Source Output].ExternalColumns[State Code]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Output].ExternalColumns[team]"
+                      name="team"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Output].ExternalColumns[Team Name]"
+                      name="Team Name"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Output].ExternalColumns[leag]"
+                      name="leag"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Output].ExternalColumns[State Code]"
+                      name="State Code"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Merge\Teams.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Error Output].Columns[team]"
+                      name="team"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Error Output].Columns[team]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Error Output].Columns[Team Name]"
+                      name="Team Name"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Error Output].Columns[Team Name]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Error Output].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Error Output].Columns[leag]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Error Output].Columns[State Code]"
+                      name="State Code"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Error Output].Columns[State Code]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Merge\Teams.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Merge\Teams.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Merge\Teams_State"
+              name="Teams_State"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[Teams_State]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Merge\Teams_State.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{A8D8A947-8FA3-4810-ACD2-999EC9F00355}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost NBA]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].Columns[team]"
+                      lineageId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[team]"
+                      externalMetadataColumnId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].ExternalColumns[team]"
+                      cachedName="team"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].Columns[Team Name]"
+                      lineageId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[Team Name]"
+                      externalMetadataColumnId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].ExternalColumns[Team Name]"
+                      cachedName="Team Name"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].Columns[leag]"
+                      lineageId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[leag]"
+                      externalMetadataColumnId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].ExternalColumns[leag]"
+                      cachedName="leag"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].Columns[State]"
+                      lineageId="Package\Merge\Merge Join.Outputs[Merge Join Output].Columns[State]"
+                      externalMetadataColumnId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      cachedName="State"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].Columns[TeamLeagID]"
+                      lineageId="Package\Merge\Derived Column.Outputs[Derived Column Output].Columns[TeamLeagID]"
+                      externalMetadataColumnId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].ExternalColumns[TeamLeagID]"
+                      cachedName="TeamLeagID"
+                      cachedDataType="wstr"
+                      cachedLength="510" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].ExternalColumns[team]"
+                      name="team"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].ExternalColumns[Team Name]"
+                      name="Team Name"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].ExternalColumns[leag]"
+                      name="leag"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      name="State"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input].ExternalColumns[TeamLeagID]"
+                      name="TeamLeagID"
+                      dataType="wstr"
+                      length="510" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Merge\Teams_State.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge\Teams_State.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Merge\Teams_State.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Merge\Teams_State.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Merge\Teams_State.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Merge.Paths[Derived Column Output]"
+              name="Derived Column Output"
+              startId="Package\Merge\Derived Column.Outputs[Derived Column Output]"
+              endId="Package\Merge\Teams_State.Inputs[OLE DB Destination Input]" />
+            <path
+              refId="Package\Merge.Paths[Merge Join Output]"
+              name="Merge Join Output"
+              startId="Package\Merge\Merge Join.Outputs[Merge Join Output]"
+              endId="Package\Merge\Derived Column.Inputs[Derived Column Input]" />
+            <path
+              refId="Package\Merge.Paths[OLE DB Source Output]"
+              name="OLE DB Source Output"
+              startId="Package\Merge\Teams.Outputs[OLE DB Source Output]"
+              endId="Package\Merge\Sort 1.Inputs[Sort Input]" />
+            <path
+              refId="Package\Merge.Paths[OLE DB Source Output1]"
+              name="OLE DB Source Output"
+              startId="Package\Merge\States.Outputs[OLE DB Source Output]"
+              endId="Package\Merge\Sort.Inputs[Sort Input]" />
+            <path
+              refId="Package\Merge.Paths[Sort Output]"
+              name="Sort Output"
+              startId="Package\Merge\Sort.Outputs[Sort Output]"
+              endId="Package\Merge\Merge Join.Inputs[Merge Join Right Input]" />
+            <path
+              refId="Package\Merge.Paths[Sort Output1]"
+              name="Sort Output"
+              startId="Package\Merge\Sort 1.Outputs[Sort Output]"
+              endId="Package\Merge\Merge Join.Inputs[Merge Join Left Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="109.068062827226,42.2198952879582"
+          Id="Package\Merge"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Merge">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="109.068062827226,42.2198952879582"
+          Id="Package\Merge\States"
+          TopLeft="310,126" />
+        <NodeLayout
+          Size="131.183246073299,42.2198952879582"
+          Id="Package\Merge\Merge Join"
+          TopLeft="212,334.010471204188" />
+        <NodeLayout
+          Size="141.738219895288,42.2198952879582"
+          Id="Package\Merge\Teams_State"
+          TopLeft="201.753926701571,471.607329842932" />
+        <NodeLayout
+          Size="99.0157068062828,42.2198952879582"
+          Id="Package\Merge\Sort"
+          TopLeft="320,234" />
+        <NodeLayout
+          Size="108.062827225131,42.2198952879582"
+          Id="Package\Merge\Sort 1"
+          TopLeft="138,234" />
+        <NodeLayout
+          Size="111.078534031414,42.2198952879582"
+          Id="Package\Merge\Teams"
+          TopLeft="146,122" />
+        <EdgeLayout
+          Id="Package\Merge.Paths[Sort Output1]"
+          TopLeft="192.031413612565,276.219895287958">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65.0296684118674,57.7905759162304"
+              Start="0,0"
+              End="65.0296684118674,50.2905759162304">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2565296390701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.2565296390701"
+                    Point2="0,34.2565296390701"
+                    Point3="4,34.2565296390701" />
+                  <mssgle:LineSegment
+                    End="61.0296684118674,34.2565296390701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.0296684118674,34.2565296390701"
+                    Point2="65.0296684118674,34.2565296390701"
+                    Point3="65.0296684118674,38.2565296390701" />
+                  <mssgle:LineSegment
+                    End="65.0296684118674,50.2905759162304" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge.Paths[Sort Output]"
+          TopLeft="369.507853403141,276.219895287958">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-71.3856893542758,57.7905759162304"
+              Start="0,0"
+              End="-71.3856893542758,50.2905759162304">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2565296390701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.2565296390701"
+                    Point2="0,34.2565296390701"
+                    Point3="-4,34.2565296390701" />
+                  <mssgle:LineSegment
+                    End="-67.3856893542758,34.2565296390701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-67.3856893542758,34.2565296390701"
+                    Point2="-71.3856893542758,34.2565296390701"
+                    Point3="-71.3856893542758,38.2565296390701" />
+                  <mssgle:LineSegment
+                    End="-71.3856893542758,50.2905759162304" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge.Paths[OLE DB Source Output1]"
+          TopLeft="367,168">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge.Paths[OLE DB Source Output]"
+          TopLeft="201.5,164">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.5,70"
+              Start="0,0"
+              End="-9.5,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="-4,35" />
+                  <mssgle:LineSegment
+                    End="-5.5,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,35"
+                    Point2="-9.5,35"
+                    Point3="-9.5,39" />
+                  <mssgle:LineSegment
+                    End="-9.5,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155.308900523561,42.2198952879582"
+          Id="Package\Merge\Derived Column"
+          TopLeft="200.544502617801,399.581151832461" />
+        <EdgeLayout
+          Id="Package\Merge.Paths[Merge Join Output]"
+          TopLeft="277.895287958115,376.230366492147">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.3507853403141"
+              Start="0,0"
+              End="0,15.8507853403141">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.8507853403141" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge.Paths[Derived Column Output]"
+          TopLeft="275.410994764398,441.801047120419">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.806282722513"
+              Start="0,0"
+              End="0,22.306282722513">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.306282722513" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Merge\States">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Merge\Teams_State">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Merge\Teams">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
